@@ -15,10 +15,12 @@ import { AppointmentsModule } from './main/appointments/appointments.module';
     MongooseModule.forRootAsync({
       imports: [AppConfigModule],
       useFactory: async (configService: ApiConfigService) => {
-        const options: MongooseModuleOptions = configService.mongoConnexion
+        const options: MongooseModuleOptions = {
+          uri: 'mongodb+srv://spa:mazraoui1996@spa.dbqrkgz.mongodb.net/?retryWrites=true&w=majority'
+        }
 
         options.connectionFactory = (connection) => {
-          autoIncrement.initialize(connection); 
+          autoIncrement.initialize(connection);
           connection.plugin(require('mongoose-delete'), { deletedAt: true });
           return connection;
         }
@@ -38,4 +40,4 @@ import { AppointmentsModule } from './main/appointments/appointments.module';
     },
     AppService],
 })
-export class AppModule {}
+export class AppModule { }

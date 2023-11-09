@@ -1,6 +1,5 @@
 
 import {
-    CanActivate,
     ExecutionContext,
     HttpException,
     HttpStatus,

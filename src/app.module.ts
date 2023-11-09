@@ -6,21 +6,19 @@ import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { AppConfigModule } from './core/config/config.module';
 import { ApiConfigService } from './core/config/config.service';
 import { APP_PIPE } from '@nestjs/core';
-import { AuthModule } from './main/auth/auth.module';
-import { UsersModule } from './main/users/users.module';
-import { AppointmentsModule } from './main/appointments/appointments.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
+import { AppointmentsModule } from './modules/appointments/appointments.module';
 
 @Module({
   imports: [
     MongooseModule.forRootAsync({
       imports: [AppConfigModule],
       useFactory: async (configService: ApiConfigService) => {
-        const options: MongooseModuleOptions = {
-          uri: 'mongodb+srv://spa:mazraoui1996@spa.dbqrkgz.mongodb.net/?retryWrites=true&w=majority'
-        }
+        const options: MongooseModuleOptions = configService.mongoConnexion
 
         options.connectionFactory = (connection) => {
-          autoIncrement.initialize(connection);
+          autoIncrement.initialize(connection); 
           connection.plugin(require('mongoose-delete'), { deletedAt: true });
           return connection;
         }
@@ -40,4 +38,4 @@ import { AppointmentsModule } from './main/appointments/appointments.module';
     },
     AppService],
 })
-export class AppModule { }
+export class AppModule {}

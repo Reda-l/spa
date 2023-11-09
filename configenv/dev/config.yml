@@ -1,0 +1,16 @@
+CONFIG:
+  port: 3000
+  BASE_URL: http://localhost:3000/
+  FRONT_URL: http://localhost:4200/
+  emailEnabled: true
+  NODE_ENV: DEV
+API:
+  token_secret: c2qazeafezdzDEF8F8EZZOXIlcHPArhZwZgH159Aezcz7s0cq8Lqcd7bGcVluZ4ZFDSFGMMPDWW3zeFzez6w035cDdq9DvXHhQmDrJlYzWdlcu5WB6m9taTa5PMpKKyqvW8cXVmG7F4
+  refresh_secret: sERTCqdz455ze2aezaecsdazpLxmyEqsdqsmKDqLETDpUrP6AlqlFeMGJsotkeazd5eaz8A6ZSDdqz9aT7STEqIoOVuCqLqYSq9za79za46CZEZDZAFEFEZnFm5J10UrBEtzSLOoK
+  expiresIn: 60m
+DB:
+  MONGO_URL: mongodb+srv://spa:mazraoui1996@spa.dbqrkgz.mongodb.net/?retryWrites=true&w=majority
+  mongoAuthEnabled: false
+  mongoUser: spa
+  mongoPassword: mazraoui1996
+  hash_password: 10
